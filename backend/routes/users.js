@@ -6,8 +6,18 @@ const User = require('../models/User');
 // GET all users
 router.get('/', async (req, res) => {
     try {
-        const users = await User.find({ });
-        res.json({collection : users});
+        const users = await User.find({});
+        res.json({ collection: users });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// GET users by occupation
+router.get('/occupation/:occupation', async (req, res) => {
+    try {
+        const users = await User.find({ occupation: req.params.occupation });
+        res.json(users);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -21,16 +31,6 @@ router.post('/post', async (req, res) => {
         res.status(201).json(newUser);
     } catch (err) {
         res.status(400).json({ message: err.message });
-    }
-});
-
-// GET users by occupation
-router.get('/occupation/:occupation', async (req, res) => {
-    try {
-        const users = await User.find({ occupation: req.params.occupation });
-        res.json(users);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
     }
 });
 

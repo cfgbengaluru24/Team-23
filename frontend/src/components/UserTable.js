@@ -1,3 +1,4 @@
+// frontend/src/components/UserTable.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedOccupations from './RelatedOccupations';
@@ -41,11 +42,7 @@ const UserTable = () => {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Occupation</th>
-                        <th>Current Income</th>
-                        <th>Expenditure</th>
-                        <th>Savings</th>
-                        <th>Loan</th>
-                        <th>Interest</th>
+                        <th>Phone Number</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,11 +51,7 @@ const UserTable = () => {
                             <td>{user._id}</td>
                             <td>{user.name}</td>
                             <td>{user.occupation}</td>
-                            <td>{user.current_income}</td>
-                            <td>{user.expenditure}</td>
-                            <td>{user.savings}</td>
-                            <td>{user.loan}</td>
-                            <td>{user.interest}</td>
+                            <td>{user.phone_number}</td>
                         </tr>
                     ))}
                 </tbody>

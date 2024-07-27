@@ -2,16 +2,10 @@
 
 const occupationMappings = {
     "Dairy Farmers": [
-        "Cattle Owners",
-        "Cheesemakers",
-        "Leather Workers",
-        "Fodder Growers"
+        "Weaving"
     ],
-    "Farmers": [
-        "Pottery Makers",
-        "Beekeepers",
-        "Herbalists",
-        "Compost Makers"
+    "Farming": [
+        "Carpentry"
     ],
     "Tailoring": [
         "Pottery"
