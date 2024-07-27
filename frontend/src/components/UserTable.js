@@ -30,6 +30,11 @@ const UserTable = () => {
         setSelectedUser(user);
     };
 
+    const handleSendSMS = (phoneNumber) => {
+        // Implement the logic to send an SMS here
+        alert(`SMS sent to ${phoneNumber}`);
+    };
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -45,6 +50,7 @@ const UserTable = () => {
                         <th>Last Expenditure</th>
                         <th>Last Savings</th>
                         <th>Last Loan</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +62,9 @@ const UserTable = () => {
                             <td>{user.expenditure.slice(-1)[0]}</td>
                             <td>{user.savings.slice(-1)[0]}</td>
                             <td>{user.loan.slice(-1)[0]}</td>
+                            <td>
+                                <button onClick={() => handleSendSMS(user.phone_number)}>Send SMS</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
