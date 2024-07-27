@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedOccupations from './RelatedOccupations';
-import FinancialChart from './FinancialChart';
+import UserFinancialDetails from './UserFinancialDetails';
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedOccupation, setSelectedOccupation] = useState(null);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,8 +24,9 @@ const UserTable = () => {
         fetchData();
     }, []);
 
-    const handleRowClick = (occupation) => {
-        setSelectedOccupation(occupation);
+    const handleRowClick = (user) => {
+        setSelectedOccupation(user.occupation);
+        setSelectedUser(user);
     };
 
     if (loading) return <div>Loading...</div>;
@@ -48,7 +50,7 @@ const UserTable = () => {
                 </thead>
                 <tbody>
                     {users.map(user => (
-                        <tr key={user._id} onClick={() => handleRowClick(user.occupation)}>
+                        <tr key={user._id} onClick={() => handleRowClick(user)}>
                             <td>{user._id}</td>
                             <td>{user.name}</td>
                             <td>{user.occupation}</td>
@@ -64,7 +66,9 @@ const UserTable = () => {
             {selectedOccupation && (
                 <RelatedOccupations occupation={selectedOccupation} />
             )}
-            <FinancialChart data={users} />
+            {selectedUser && (
+                <UserFinancialDetails user={selectedUser} />
+            )}
         </div>
     );
 };
