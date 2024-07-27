@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedOccupations from './RelatedOccupations';
+import FinancialChart from './FinancialChart';
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
@@ -63,6 +64,7 @@ const UserTable = () => {
             {selectedOccupation && (
                 <RelatedOccupations occupation={selectedOccupation} />
             )}
+            <FinancialChart data={users} />
         </div>
     );
 };

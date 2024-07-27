@@ -1,6 +1,7 @@
 import React from 'react';
 import UserTable from './components/UserTable';
 import RelatedOccupations from './components/RelatedOccupations';
+import FinancialChart from './components/FinancialChart';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             </header>
             <main>
                 <UserTable/>
+                <FinancialChart/>
                 <RelatedOccupations/>
             </main>
         </div>
