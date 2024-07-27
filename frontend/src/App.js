@@ -9,6 +9,10 @@ function App() {
             </header>
             <main>
                 <UserTable/>
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 46b05795fd1b5e624e2249cd84f52713fa67f169
             </main>
         </div>
     );
