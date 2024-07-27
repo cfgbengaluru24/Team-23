@@ -9,6 +9,13 @@ const UserTable = () => {
     const [error, setError] = useState(null);
     const [selectedOccupation, setSelectedOccupation] = useState(null);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [editingUser, setEditingUser] = useState(null);
+    const [formData, setFormData] = useState({
+        current_income: '',
+        expenditure: '',
+        savings: '',
+        loan: ''
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,6 +45,44 @@ const UserTable = () => {
         } catch (error) {
             console.error('Error sending SMS:', error);
             alert('Failed to send SMS');
+        }
+    };
+
+    const handleUpdate = (user) => {
+        setEditingUser(user);
+        setFormData({
+            current_income: '',
+            expenditure: '',
+            savings: '',
+            loan: ''
+        });
+    };
+
+    const handleInputChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const { current_income, expenditure, savings, loan } = formData;
+            console.log('Submitting update with data:', formData);
+            const response = await axios.put(`http://localhost:5000/api/users/${editingUser._id}`, {
+                current_income: Number(current_income),
+                expenditure: Number(expenditure),
+                savings: Number(savings),
+                loan: Number(loan)
+            });
+            console.log('Update response:', response.data);
+            setUsers(users.map(user => user._id === editingUser._id ? response.data : user));
+            setEditingUser(null);
+            alert('User data updated successfully');
+        } catch (error) {
+            console.error('Error updating user data:', error);
+            alert('Failed to update user data');
         }
     };
 
@@ -73,6 +118,10 @@ const UserTable = () => {
                                     event.stopPropagation();
                                     handleSendSMS(user);
                                 }}>Send SMS</button>
+                                <button onClick={(event) => {
+                                    event.stopPropagation();
+                                    handleUpdate(user);
+                                }}>Update</button>
                             </td>
                         </tr>
                     ))}
@@ -83,6 +132,54 @@ const UserTable = () => {
             )}
             {selectedUser && (
                 <UserFinancialDetails user={selectedUser} />
+            )}
+            {editingUser && (
+                <div>
+                    <h2>Update User Data</h2>
+                    <form onSubmit={handleFormSubmit}>
+                        <label>
+                            Current Income:
+                            <input
+                                type="number"
+                                name="current_income"
+                                value={formData.current_income}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </label>
+                        <label>
+                            Expenditure:
+                            <input
+                                type="number"
+                                name="expenditure"
+                                value={formData.expenditure}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </label>
+                        <label>
+                            Savings:
+                            <input
+                                type="number"
+                                name="savings"
+                                value={formData.savings}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </label>
+                        <label>
+                            Loan:
+                            <input
+                                type="number"
+                                name="loan"
+                                value={formData.loan}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </label>
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
             )}
         </div>
     );

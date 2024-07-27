@@ -10,11 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Verify environment variables
-console.log('Twilio Account SID:', process.env.TWILIO_ACCOUNT_SID);
-console.log('Twilio Auth Token:', process.env.TWILIO_AUTH_TOKEN);
-console.log('Twilio Phone Number:', process.env.TWILIO_PHONE_NUMBER);
-
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
 })
