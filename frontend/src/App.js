@@ -11,8 +11,8 @@ function App() {
             </header>
             <main>
                 <UserTable/>
-                <FinancialChart/>
-                <RelatedOccupations/>
+                {/* <FinancialChart/>
+                <RelatedOccupations/> */}
             </main>
         </div>
     );
