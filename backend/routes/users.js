@@ -24,4 +24,14 @@ router.post('/post', async (req, res) => {
     }
 });
 
+// GET users by occupation
+router.get('/occupation/:occupation', async (req, res) => {
+    try {
+        const users = await User.find({ occupation: req.params.occupation });
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
