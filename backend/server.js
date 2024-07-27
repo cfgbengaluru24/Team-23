@@ -1,8 +1,8 @@
-// backend/server.js
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
 
@@ -10,10 +10,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Verify environment variables
+console.log('Twilio Account SID:', process.env.TWILIO_ACCOUNT_SID);
+console.log('Twilio Auth Token:', process.env.TWILIO_AUTH_TOKEN);
+console.log('Twilio Phone Number:', process.env.TWILIO_PHONE_NUMBER);
+
 // MongoDB connection
-mongoose.connect("mongodb+srv://kavyasri1211:tlBhmlYrbD3EU0i6@cluster0.nme24yd.mongodb.net/users", {
-   // useNewUrlParser: true,
-    //useUnifiedTopology: true,
+mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));

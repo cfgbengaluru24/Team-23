@@ -1,4 +1,3 @@
-// frontend/src/components/UserTable.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedOccupations from './RelatedOccupations';
@@ -30,9 +29,16 @@ const UserTable = () => {
         setSelectedUser(user);
     };
 
-    const handleSendSMS = (phoneNumber) => {
-        // Implement the logic to send an SMS here
-        alert(`SMS sent to ${phoneNumber}`);
+    const handleSendSMS = async (user) => {
+        try {
+            const { phone_number, name, current_income, expenditure, savings, loan } = user;
+            const message = `Hello ${name},\n\nHere are your financial details:\n- Last Income: ${current_income.slice(-1)[0]}\n- Last Expenditure: ${expenditure.slice(-1)[0]}\n- Last Savings: ${savings.slice(-1)[0]}\n- Last Loan: ${loan.slice(-1)[0]}`;
+            await axios.post('http://localhost:5000/api/users/send-sms', { phoneNumber: phone_number, message });
+            alert(`SMS sent to ${phone_number}`);
+        } catch (error) {
+            console.error('Error sending SMS:', error);
+            alert('Failed to send SMS');
+        }
     };
 
     if (loading) return <div>Loading...</div>;
@@ -63,7 +69,10 @@ const UserTable = () => {
                             <td>{user.savings.slice(-1)[0]}</td>
                             <td>{user.loan.slice(-1)[0]}</td>
                             <td>
-                                <button onClick={() => handleSendSMS(user.phone_number)}>Send SMS</button>
+                                <button onClick={(event) => {
+                                    event.stopPropagation();
+                                    handleSendSMS(user);
+                                }}>Send SMS</button>
                             </td>
                         </tr>
                     ))}
