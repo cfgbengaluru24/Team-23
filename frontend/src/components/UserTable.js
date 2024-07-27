@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import RelatedOccupations from './RelatedOccupations';
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [selectedOccupation, setSelectedOccupation] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +21,10 @@ const UserTable = () => {
         };
         fetchData();
     }, []);
+
+    const handleRowClick = (occupation) => {
+        setSelectedOccupation(occupation);
+    };
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -41,7 +47,7 @@ const UserTable = () => {
                 </thead>
                 <tbody>
                     {users.map(user => (
-                        <tr key={user._id}>
+                        <tr key={user._id} onClick={() => handleRowClick(user.occupation)}>
                             <td>{user._id}</td>
                             <td>{user.name}</td>
                             <td>{user.occupation}</td>
@@ -54,6 +60,9 @@ const UserTable = () => {
                     ))}
                 </tbody>
             </table>
+            {selectedOccupation && (
+                <RelatedOccupations occupation={selectedOccupation} />
+            )}
         </div>
     );
 };

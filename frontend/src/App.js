@@ -1,5 +1,6 @@
 import React from 'react';
 import UserTable from './components/UserTable';
+import RelatedOccupations from './components/RelatedOccupations';
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             </header>
             <main>
                 <UserTable/>
+                <RelatedOccupations/>
             </main>
         </div>
     );
