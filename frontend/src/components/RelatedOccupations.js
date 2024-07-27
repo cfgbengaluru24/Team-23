@@ -39,27 +39,17 @@ const RelatedOccupations = ({ occupation }) => {
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Occupation</th>
-                            <th>Current Income</th>
-                            <th>Expenditure</th>
-                            <th>Savings</th>
-                            <th>Loan</th>
-                            <th>Interest</th>
+                            <th>Phone Number</th>
                         </tr>
                     </thead>
                     <tbody>
                         {relatedUsers.map(user => (
                             <tr key={user._id}>
-                                <td>{user._id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.occupation}</td>
-                                <td>{user.current_income}</td>
-                                <td>{user.expenditure}</td>
-                                <td>{user.savings}</td>
-                                <td>{user.loan}</td>
-                                <td>{user.interest}</td>
+                                <td>{user.phone_number}</td>
                             </tr>
                         ))}
                     </tbody>

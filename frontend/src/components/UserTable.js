@@ -39,19 +39,23 @@ const UserTable = () => {
             <table border="1">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Occupation</th>
-                        <th>Phone Number</th>
+                        <th>Last Income</th>
+                        <th>Last Expenditure</th>
+                        <th>Last Savings</th>
+                        <th>Last Loan</th>
                     </tr>
                 </thead>
                 <tbody>
                     {users.map(user => (
                         <tr key={user._id} onClick={() => handleRowClick(user)}>
-                            <td>{user._id}</td>
                             <td>{user.name}</td>
                             <td>{user.occupation}</td>
-                            <td>{user.phone_number}</td>
+                            <td>{user.current_income.slice(-1)[0]}</td>
+                            <td>{user.expenditure.slice(-1)[0]}</td>
+                            <td>{user.savings.slice(-1)[0]}</td>
+                            <td>{user.loan.slice(-1)[0]}</td>
                         </tr>
                     ))}
                 </tbody>
