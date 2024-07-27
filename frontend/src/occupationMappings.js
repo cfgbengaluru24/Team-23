@@ -1,18 +1,18 @@
 // frontend/src/occupationMappings.js
 
 const occupationMappings = {
-    "Dairy Farmers": [
+    "Pottery": [
+        "Farmer"
+    ],
+    "Farmer": [
         "Weaving"
     ],
-    "Farming": [
-        "Carpentry"
+    "Weaving": [
+        "Tailoring"
     ],
     "Tailoring": [
         "Pottery"
-    ],
-    "Pottery": [
-        "Tailoring"
-    ],
+    ],
     // Add other occupations and their pairings here...
 };
 

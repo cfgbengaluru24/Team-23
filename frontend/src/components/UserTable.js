@@ -1,3 +1,5 @@
+import './userTable.css';
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedOccupations from './RelatedOccupations';
@@ -21,6 +23,7 @@ const UserTable = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/users');
+                console.log(response);
                 setUsers(response.data.collection);
                 setLoading(false);
             } catch (error) {
@@ -70,7 +73,7 @@ const UserTable = () => {
         try {
             const { current_income, expenditure, savings, loan } = formData;
             console.log('Submitting update with data:', formData);
-            const response = await axios.put(`http://localhost:5000/api/users/${editingUser._id}`, {
+            const response = await axios.put(`http://localhost:5000/api/users/users/${editingUser._id}`, {
                 current_income: Number(current_income),
                 expenditure: Number(expenditure),
                 savings: Number(savings),
@@ -106,7 +109,9 @@ const UserTable = () => {
                 </thead>
                 <tbody>
                     {users.map(user => (
+                        
                         <tr key={user._id} onClick={() => handleRowClick(user)}>
+                            {console.log(user)}
                             <td>{user.name}</td>
                             <td>{user.occupation}</td>
                             <td>{user.current_income.slice(-1)[0]}</td>
