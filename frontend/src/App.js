@@ -9,6 +9,7 @@ function App() {
             </header>
             <main>
                 <UserTable/>
+                <FinancialChart/>
             </main>
         </div>
     );
