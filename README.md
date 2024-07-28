@@ -1,6 +1,5 @@
 # Team-23
 
-```markdown
 # Best Practices Foundation Project
 
 ![Best Practices Foundation](https://yourimageurl.com/logo.png)
@@ -126,4 +125,3 @@ The Best Practices Foundation project aims to address various challenges faced b
 2. **Admin Dashboard**: View and manage data, visualize it, and utilize the recommendation system.
 3. **Call Center**: Use the helpline service for assistance and feedback.
 
-```
