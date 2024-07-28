@@ -2,8 +2,6 @@
 
 # Best Practices Foundation Project
 
-![Best Practices Foundation](https://yourimageurl.com/logo.png)
-
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -81,23 +79,8 @@ The Best Practices Foundation project aims to address various challenges faced b
     npm run dev
     ```
 
-## Project Structure
-
-```
-.
-├── backend
-│   ├── controllers
-│   ├── models
-│   ├── routes
-│   └── utils
-├── frontend
-│   ├── public
-│   ├── src
-│   ├── components
-│   ├── pages
-│   └── styles
-└── .env.local
-```
+## Data Flow Diagram
+![image](https://github.com/user-attachments/assets/7887ea13-daac-4dc3-b0c7-92b7dd8ae354)
 
 ## Modules
 
