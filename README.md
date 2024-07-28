@@ -7,7 +7,7 @@
 - [Features](#features)
 - [Technology Stack](#technology-stack)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
+- [Data Flow Diagram](#dataflow-diagram)
 - [Modules](#modules)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -16,7 +16,9 @@
 
 ## Introduction
 
-The Best Practices Foundation project aims to address various challenges faced by the NGO through the development of technology solutions. The primary focus is on training trainers, assessing their learning, recording and analyzing data, and creating a comprehensive knowledge bank for program management and reporting.
+The Best Practices Foundation project aims to address various challenges faced by the illiterate women through gamefied MBA program. The primary areas of problem that they currently face is on training trainers, assessing their learning, recording and analyzing data, and creating a comprehensive knowledge bank for program management and reporting.
+
+Addressing these issues we came up with our one in all solution focusing on social good. Digging deep into our solution
 
 ## Features
 
