@@ -101,7 +101,7 @@ const LoginRegisterForm = () => {
 		<div style={backgroundStyle}>
 			<div className='wrapper'>
 				<div className='container'>
-					<h1 className='brand'>Welcome!</h1>
+					<h1 className='brand'>Welcome!</h1><h1>Help Line : 8047492874</h1>
 					{error && <div className='error-message'>{error}</div>}
 					{isLogin ? (
 						<form className='form' onSubmit={handleSubmit}>
