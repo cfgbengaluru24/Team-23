@@ -4,6 +4,7 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
 - [Getting Started](#getting-started)
@@ -17,6 +18,17 @@
 ## Introduction
 
 The Best Practices Foundation project aims to address various challenges faced by the illiterate women through gamefied MBA program. The primary areas of problem that they currently face is on training trainers, assessing their learning, recording and analyzing data, and creating a comprehensive knowledge bank for program management and reporting.
+
+## Problem Statement
+
+Development of technology to
+1. Train trainers through digital modules
+2. Assess trainers learning through the digital module and store it for end-of-cycle grading and certification
+3. Record baseline and endline data of the programme participants
+4. Analyse this data
+5. Allow helpdesk personnel and trainers to view FAQs recorded from queries related to earlier and existing training
+batches (filters by a UID number for each participant)
+6. Create a knowledge bank and document repository which can be utilized for program management and reporting
 
 Addressing these issues we came up with our one in all solution focusing on social good. Digging deep into our solution
 
